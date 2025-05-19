@@ -1,0 +1,62 @@
+# seed: [999]
+train_batch_size: 512
+learning_rate: 0.0005
+embedding_size: 64
+feat_embed_dim: 64
+weight_size: [64, 64]
+
+lambda_coeff: 0.9
+reg_weight: 0.0
+# reg_weight: [1e-04, 0.01, 0.1, 1,0]
+
+# reg_weight: 0
+
+n_mm_layers: 1
+n_ui_layers: 2
+knn_k: 10
+
+mm_image_weight: 0.1
+dropout: 0.8
+
+
+# diffusion
+# diff_weight: 0.5
+diff_weight: [0.5, 1, 2]
+# timesteps: [1, 2, 5, 10, 40, 100]
+timesteps: 20
+beta_start: 0.0001
+beta_end: 0.02
+# beta_sche: [ "exp", "cosine", "sqrt"]
+beta_sche: "linear"
+
+w: 0.5
+#Unet
+ch: 8
+out_ch: 3
+num_res_blocks: 2
+unet_dropout: 0.1
+# unet_dropout: 0.1
+in_channels: 3
+hidden_size: 64
+resamp_with_conv: True
+weight: 0.8
+sample_k: 0.1
+# sample_k: 0.2
+# negsample_step: 0
+
+# curriculum_start_epoch curriculum_step curriculum_end_epoch
+# baby 5 5 30
+# sports 
+# curriculum_start_epoch: 5
+# curriculum_step: 10
+# curriculum_end_epoch: 75
+
+
+# clothing 
+# 5 5 30
+curriculum_start_epoch: 5
+curriculum_step: 5
+curriculum_end_epoch: 30
+hyper_parameters: ["diff_weight"]
+
+
